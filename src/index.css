@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow: auto;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.loader {
+  animation: loading 2s infinite linear;
+}
+
+@keyframes loading {
+  
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.shadow {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.7);
+}
+
+.line {
+  animation: line 5s 1 linear;
+}
+
+@keyframes line {
+  100% {
+    width: 100%;
+  }
+}
