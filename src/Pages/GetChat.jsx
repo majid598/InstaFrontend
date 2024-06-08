@@ -1,15 +1,13 @@
+import moment from "moment";
+import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   useAllMessagesQuery,
   useGetChatQuery,
   useSendMessageMutation,
 } from "../redux/api/api";
-import moment from "moment";
-import { useSelector } from "react-redux";
-import { BiLoader, BiSend } from "react-icons/bi";
-import { useEffect, useRef, useState } from "react";
-import { toast } from "react-toastify";
-import LocomotiveScroll from "locomotive-scroll";
 
 const GetChat = () => {
   const chatContainerRef = useRef(null);
@@ -78,16 +76,13 @@ const GetChat = () => {
 
   useEffect(() => {
     // Scroll to the bottom of the chat container when the component mounts or when chatID changes
-    scrollToBottom();
-  }, []);
-
-  const scrollToBottom = () => {
-    // Scroll to the bottom of the chat container
     if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop =
-        chatContainerRef.current.scrollHeight;
+      chatContainerRef.current.scrollTo({
+        bottom: 0,
+        behavior: 'smooth',
+      });
     }
-  };
+  }, [messagesData?.messages.length]);
 
   if (isError) return toast.error("Chat Id Expired");
 
@@ -96,7 +91,6 @@ const GetChat = () => {
   ) : (
     <div className="w-full h-screen relative bg-white">
       <div
-        ref={chatContainerRef}
         className="w-full max-h-screen overflow-y-scroll pb-20"
       >
         <div className="w-full flex px-4 py-2 justify-between">
@@ -136,11 +130,10 @@ const GetChat = () => {
               {messagesData?.messages?.map((message, index) => (
                 <div key={message?._id} className="w-full">
                   <div
-                    className={`w-full flex items-end gap-3 ${
-                      message?.sender?._id === user._id
-                        ? "justify-end"
-                        : "justify-start"
-                    }`}
+                    className={`w-full flex items-end gap-3 ${message?.sender?._id === user._id
+                      ? "justify-end"
+                      : "justify-start"
+                      }`}
                   >
                     {message?.sender?._id === user._id ? (
                       ""
@@ -150,11 +143,10 @@ const GetChat = () => {
                       </div>
                     )}
                     <div
-                      className={`w-1/2 h-full px-3 py-2 ${
-                        message?.sender?._id === user._id
-                          ? "bg-[#3797F0] text-white rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl rounded-br-sm "
-                          : "bg-black/10 text-zinc-800 rounded-xl"
-                      }`}
+                      className={`w-1/2 h-full px-3 py-2 ${message?.sender?._id === user._id
+                        ? "bg-[#3797F0] text-white rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl rounded-br-sm "
+                        : "bg-black/10 text-zinc-800 rounded-xl"
+                        }`}
                     >
                       <p className="text-sm">
                         {renderMessageContent(message?.content)}
@@ -173,6 +165,7 @@ const GetChat = () => {
               ))}
             </div>
           )}
+          <div ref={chatContainerRef}></div>
         </div>
       </div>
       <div className="w-full h-20 absolute bottom-0 left-0 bg-white flex items-center justify-between px-4">
