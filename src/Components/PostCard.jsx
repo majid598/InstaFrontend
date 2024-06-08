@@ -58,7 +58,7 @@ const PostCard = ({ post }) => {
           </button>
         </div>
       </div>
-      <div className="w-full h-auto bg-red-500">
+      <div className="w-full h-auto">
         <img src={post?.attachMent} className="w-full h-auto" alt="" />
       </div>
       <div className="w-full justify-between flex items-center py-3 px-2 pr-5">
