@@ -52,7 +52,7 @@ const Following = () => {
             </div>
             <button
               onClick={() => unFollow(follower._id)}
-              className="bg-red-500 font-bold rounded-lg text-white p-1.5 px-4"
+              className="bg-red-500 text-sm font-bold rounded-lg text-white p-1 px-2"
             >
               unFollow
             </button>
