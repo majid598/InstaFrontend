@@ -22,11 +22,6 @@ const Profile = () => {
   const { user } = useSelector((state) => state.auth);
 
   const [loading, setLoading] = useState(false);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 5000);
-  // }, []);
   const logoutHandler = async () => {
     await axios
       .get(`${server}/api/v1/user/logout`, { withCredentials: true })
@@ -118,16 +113,14 @@ const Profile = () => {
             }}
           >
             <div
-              className={`w-5 h-5 border transition-all duration-300 ${
-                all ? "border-sky-500" : "border-black/40"
-              } grid grid-cols-3 grid-rows-3`}
+              className={`w-5 h-5 border transition-all duration-300 ${all ? "border-sky-500" : "border-black/40"
+                } grid grid-cols-3 grid-rows-3`}
             >
               {[...Array(9)].map((_, index) => {
                 return (
                   <div
-                    className={`w-full h-full border transition-all duration-300 ${
-                      all ? "border-sky-500" : "border-black/40"
-                    }`}
+                    className={`w-full h-full border transition-all duration-300 ${all ? "border-sky-500" : "border-black/40"
+                      }`}
                   ></div>
                 );
               })}
@@ -143,19 +136,16 @@ const Profile = () => {
             className="flex w-3 h-5 flex-col gap-0.5"
           >
             <div
-              className={`w-full h-0.5 ${
-                posts ? "bg-sky-500" : "bg-black/40"
-              } transition-all duration-300`}
+              className={`w-full h-0.5 ${posts ? "bg-sky-500" : "bg-black/40"
+                } transition-all duration-300`}
             ></div>
             <div
-              className={`w-full h-2.5 border-2 ${
-                posts ? "border-sky-500" : "border-black/40"
-              } transition-all duration-300`}
+              className={`w-full h-2.5 border-2 ${posts ? "border-sky-500" : "border-black/40"
+                } transition-all duration-300`}
             ></div>
             <div
-              className={`w-full h-0.5 ${
-                posts ? "bg-sky-500" : "bg-black/40"
-              } transition-all duration-300`}
+              className={`w-full h-0.5 ${posts ? "bg-sky-500" : "bg-black/40"
+                } transition-all duration-300`}
             ></div>
           </button>
           <button
@@ -165,14 +155,12 @@ const Profile = () => {
               setReels(true);
               setFavourites(false);
             }}
-            className={`border-[1px] h-5 rounded-md w-5 flex items-center justify-center transition-all duration-300 ${
-              reels ? "border-sky-500" : "border-black/40"
-            }`}
+            className={`border-[1px] h-5 rounded-md w-5 flex items-center justify-center transition-all duration-300 ${reels ? "border-sky-500" : "border-black/40"
+              }`}
           >
             <FaPlay
-              className={`text-[10px] transition-all duration-300 ${
-                reels ? "text-sky-600" : "text-black/40"
-              }`}
+              className={`text-[10px] transition-all duration-300 ${reels ? "text-sky-600" : "text-black/40"
+                }`}
             />
           </button>
           <button
@@ -184,11 +172,9 @@ const Profile = () => {
             }}
           >
             <button
-              className={`w-4 h-4 rounded-sm border-2 ${
-                favourites ? "border-sky-500" : "border-black/40"
-              } border-b-0 after:content-[''] after:absolute after:w-full after:h-3 after:border-2 transition-all duration-300 ${
-                favourites ? "after:border-sky-500" : "after:border-black/40"
-              } after:-bottom-1.5 overflow-hidden after:left-1/2 after:-translate-x-1/2 relative after:rotate-45 after:border-b-0 after:border-r-0`}
+              className={`w-4 h-4 rounded-sm border-2 ${favourites ? "border-sky-500" : "border-black/40"
+                } border-b-0 after:content-[''] after:absolute after:w-full after:h-3 after:border-2 transition-all duration-300 ${favourites ? "after:border-sky-500" : "after:border-black/40"
+                } after:-bottom-1.5 overflow-hidden after:left-1/2 after:-translate-x-1/2 relative after:rotate-45 after:border-b-0 after:border-r-0`}
             ></button>
           </button>
           <button>faks</button>
@@ -197,8 +183,8 @@ const Profile = () => {
           {all && (
             <>
               {user?.posts?.map((post, index) => (
-                <div key={index} className="w-full h-40 bg-zinc-300">
-                  <ContentDisplay src={post.attachMent} />
+                <div key={post?._id} className="w-full h-40 bg-zinc-300">
+                  <img src={post?.attachMent} alt="faskd" />
                 </div>
               ))}
             </>
