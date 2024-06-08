@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useRemoveAFollowerMutation } from "../redux/api/api";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
+import Layout from "../Layout/Layout";
 
 const Followers = () => {
   const navigate = useNavigate();
@@ -19,7 +20,8 @@ const Followers = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col gap-2 py- px-6">
+    <Layout>
+      <div className="w-full min-h-screen flex flex-col gap-2 py- px-6">
       <div className="w-full flex py-2">
         back{" "}
         <h2 className="text-center w-full font-semibold text-xl">Followers</h2>
@@ -57,6 +59,7 @@ const Followers = () => {
         </div>
       ))}
     </div>
+    </Layout>
   );
 };
 
