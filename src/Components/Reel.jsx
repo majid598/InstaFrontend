@@ -204,10 +204,10 @@ const Reel = ({ index, reel, playerRefs, currentIndex }) => {
       </div>
       <div className="w-full z-50 absolute bottom-0 gap-2 p-4">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full overflow-hidden border-white border bg-zinc-500 relative z-50">
+          <Link to={`/user/${reel?.user?._id}`} className="w-8 inline-block h-8 rounded-full overflow-hidden border-white border bg-zinc-500 relative z-50">
             <img src={reel?.user?.profile} alt="" />
-          </div>
-          <h2 className="text-white text-sm">{reel?.user?.username}</h2>
+          </Link>
+          <Link className="text-white text-sm">{reel?.user?.username}</Link>
         </div>
         <div className="w-full">
           <p className="text-white text-xs mt-2 text-start">{reel?.title}</p>
@@ -289,9 +289,8 @@ const Reel = ({ index, reel, playerRefs, currentIndex }) => {
                   </div>
                   <button
                     onClick={() => setSelectedChat(chat)}
-                    className={`w-5 h-5 ${
-                      selectedChat?._id === chat._id ? "bg-sky-500" : "bg-white"
-                    } border border-white rounded-full`}
+                    className={`w-5 h-5 ${selectedChat?._id === chat._id ? "bg-sky-500" : "bg-white"
+                      } border border-white rounded-full`}
                   ></button>
                   <div className="absolute px-4 bottom-0 left-0 w-full">
                     <button
@@ -309,18 +308,16 @@ const Reel = ({ index, reel, playerRefs, currentIndex }) => {
         )}
         <button onClick={addToFavorites}>
           <div
-            className={`w-4 h-4 rounded-sm ${
-              isFavorited ? "bg-white" : ""
-            } after:bg-black z-[999] border-2 border-white border-b-0 after:content-[''] after:absolute after:w-full after:h-3 after:border-2 transition-all duration-300 after:border-white
+            className={`w-4 h-4 rounded-sm ${isFavorited ? "bg-white" : ""
+              } after:bg-black z-[999] border-2 border-white border-b-0 after:content-[''] after:absolute after:w-full after:h-3 after:border-2 transition-all duration-300 after:border-white
                    after:-bottom-1.5 overflow-hidden after:left-1/2 after:-translate-x-1/2 relative after:rotate-45 after:border-b-0 after:border-r-0`}
           ></div>
           <span className="text-sm text-center text-white">{reel?.favorites?.length}</span>
         </button>
       </div>
       <div
-        className={`${
-          isComment ? "bottom-0" : "-bottom-full"
-        } absolute transition-all duration-300 left-0 w-full h-1/2 bg-black/70 z-[999]`}
+        className={`${isComment ? "bottom-0" : "-bottom-full"
+          } absolute transition-all duration-300 left-0 w-full h-1/2 bg-black/70 z-[999]`}
       >
         <div className="w-full h-1/5 border-b border-white/30">
           <input
