@@ -43,7 +43,7 @@ const Signup = () => {
       <div className="w-full h-full flex flex-col items-center">
         <form
           onSubmit={handleSubmit}
-          className="w-full flex flex-col items-center border border-black/20 py-8"
+          className="w-full flex flex-col items-center sm:border border-black/20 py-8"
         >
           <div className="w-3/5">
             <img src="/assets/Instagram_logo.svg" alt="" />
@@ -133,7 +133,7 @@ const Signup = () => {
             </button>
           </div>
         </form>
-        <div className="w-full border border-black/20 flex justify-center py-5 mt-3 text-sm gap-1">
+        <div className="w-full sm:border border-black/20 flex justify-center sm:py-5 py-2 sm:mt-3 text-sm gap-1">
           <h2>Have an account?</h2>
           <Link to="/" className="text-sky-500 font-semibold">
             Log in
