@@ -50,15 +50,15 @@ const Profile = () => {
             <div className="flex gap-2">
               <Link
                 to={"/profile/edit"}
-                className="sm:px-3 px-1.5 font-semibold text-xs tracking-tight py-1.5 rounded-md bg-zinc-200"
+                className="sm:px-3 px-2 font-semibold text-xs tracking-tight py-1.5 sm:rounded-md rounded-[3px] bg-zinc-200"
               >
                 Edit profile
               </Link>
-              <Link className="sm:px-3 px-1.5font-semibold text-xs tracking-tight py-1.5 rounded-md bg-zinc-200">
+              <Link className="sm:px-3 px-2 font-semibold text-xs tracking-tight py-1.5 sm:rounded-md rounded-[3px] bg-zinc-200">
                 View archive
               </Link>
             </div>
-            <button className="w-full mt-2 font-semibold py-1.5 text-xs  rounded-md bg-zinc-200">
+            <button className="w-full mt-2 font-semibold py-1.5 text-xs sm:rounded-md rounded-[3px] bg-zinc-200">
               Add tools
             </button>
           </div>
