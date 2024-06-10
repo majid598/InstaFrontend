@@ -46,7 +46,7 @@ const Profile = () => {
           <div className="profile bg-zinc-500 w-24 h-24  lg:w-20 md:w-20 md:h-20 lg:h-20 rounded-full overflow-hidden">
             <img src={user?.profile} className="w-full h-full" alt="" />
           </div>
-          <div className="pl-5">
+          <div className="pl-5 bg-red-500">
             <div className="flex gap-2">
               <Link
                 to={"/profile/edit"}
@@ -113,14 +113,16 @@ const Profile = () => {
             }}
           >
             <div
-              className={`w-5 h-5 border transition-all duration-300 ${all ? "border-sky-500" : "border-black/40"
-                } grid grid-cols-3 grid-rows-3`}
+              className={`w-5 h-5 border transition-all duration-300 ${
+                all ? "border-sky-500" : "border-black/40"
+              } grid grid-cols-3 grid-rows-3`}
             >
               {[...Array(9)].map((_, index) => {
                 return (
                   <div
-                    className={`w-full h-full border transition-all duration-300 ${all ? "border-sky-500" : "border-black/40"
-                      }`}
+                    className={`w-full h-full border transition-all duration-300 ${
+                      all ? "border-sky-500" : "border-black/40"
+                    }`}
                   ></div>
                 );
               })}
@@ -136,16 +138,19 @@ const Profile = () => {
             className="flex w-3 h-5 flex-col gap-0.5"
           >
             <div
-              className={`w-full h-0.5 ${posts ? "bg-sky-500" : "bg-black/40"
-                } transition-all duration-300`}
+              className={`w-full h-0.5 ${
+                posts ? "bg-sky-500" : "bg-black/40"
+              } transition-all duration-300`}
             ></div>
             <div
-              className={`w-full h-2.5 border-2 ${posts ? "border-sky-500" : "border-black/40"
-                } transition-all duration-300`}
+              className={`w-full h-2.5 border-2 ${
+                posts ? "border-sky-500" : "border-black/40"
+              } transition-all duration-300`}
             ></div>
             <div
-              className={`w-full h-0.5 ${posts ? "bg-sky-500" : "bg-black/40"
-                } transition-all duration-300`}
+              className={`w-full h-0.5 ${
+                posts ? "bg-sky-500" : "bg-black/40"
+              } transition-all duration-300`}
             ></div>
           </button>
           <button
@@ -155,12 +160,14 @@ const Profile = () => {
               setReels(true);
               setFavourites(false);
             }}
-            className={`border-[1px] h-5 rounded-md w-5 flex items-center justify-center transition-all duration-300 ${reels ? "border-sky-500" : "border-black/40"
-              }`}
+            className={`border-[1px] h-5 rounded-md w-5 flex items-center justify-center transition-all duration-300 ${
+              reels ? "border-sky-500" : "border-black/40"
+            }`}
           >
             <FaPlay
-              className={`text-[10px] transition-all duration-300 ${reels ? "text-sky-600" : "text-black/40"
-                }`}
+              className={`text-[10px] transition-all duration-300 ${
+                reels ? "text-sky-600" : "text-black/40"
+              }`}
             />
           </button>
           <button
@@ -172,12 +179,52 @@ const Profile = () => {
             }}
           >
             <button
-              className={`w-4 h-4 rounded-sm border-2 ${favourites ? "border-sky-500" : "border-black/40"
-                } border-b-0 after:content-[''] after:absolute after:w-full after:h-3 after:border-2 transition-all duration-300 ${favourites ? "after:border-sky-500" : "after:border-black/40"
-                } after:-bottom-1.5 overflow-hidden after:left-1/2 after:-translate-x-1/2 relative after:rotate-45 after:border-b-0 after:border-r-0`}
+              className={`w-4 h-4 rounded-sm border-2 ${
+                favourites ? "border-sky-500" : "border-black/40"
+              } border-b-0 after:content-[''] after:absolute after:w-full after:h-3 after:border-2 transition-all duration-300 ${
+                favourites ? "after:border-sky-500" : "after:border-black/40"
+              } after:-bottom-1.5 overflow-hidden after:left-1/2 after:-translate-x-1/2 relative after:rotate-45 after:border-b-0 after:border-r-0`}
             ></button>
           </button>
-          <button>faks</button>
+          <button>
+            <svg
+              aria-label="Tagged"
+              class="x1lliihq x1n2onr6 x1roi4f4"
+              fill="currentColor"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <title>Tagged</title>
+              <path
+                d="M10.201 3.797 12 1.997l1.799 1.8a1.59 1.59 0 0 0 1.124.465h5.259A1.818 1.818 0 0 1 22 6.08v14.104a1.818 1.818 0 0 1-1.818 1.818H3.818A1.818 1.818 0 0 1 2 20.184V6.08a1.818 1.818 0 0 1 1.818-1.818h5.26a1.59 1.59 0 0 0 1.123-.465Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              ></path>
+              <path
+                d="M18.598 22.002V21.4a3.949 3.949 0 0 0-3.948-3.949H9.495A3.949 3.949 0 0 0 5.546 21.4v.603"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              ></path>
+              <circle
+                cx="12.072"
+                cy="11.075"
+                fill="none"
+                r="3.556"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              ></circle>
+            </svg>
+          </button>
         </div>
         <div className="w-full grid grid-cols-3 gap-0.5 justify-between bg-white border-t-[1px] border-black/60 h-full">
           {all && (
