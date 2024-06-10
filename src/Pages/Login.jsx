@@ -40,7 +40,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full h-screen py-10 px-20">
+    <div className="w-full h-screen py-10 md:px-20">
       <div className="w-full h-full flex flex-col items-center">
         <form
           onSubmit={handleSubmit}
