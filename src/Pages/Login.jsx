@@ -44,7 +44,7 @@ const Login = () => {
       <div className="w-full h-full flex flex-col items-center">
         <form
           onSubmit={handleSubmit}
-          className="w-full flex flex-col items-center border border-black/20 py-8"
+          className="w-full flex flex-col items-center md:border border-black/20 py-8"
         >
           <div className="w-3/5">
             <img src="/assets/Instagram_logo.svg" alt="" />
