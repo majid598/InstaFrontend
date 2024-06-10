@@ -30,9 +30,6 @@ const Footer = () => {
             }`}
           />
         </Link>
-        <Link className="border-black/90" to={"/reels"}>
-          <VscDiffAdded className="text-2xl" />
-        </Link>
         <Link to={"/chats"}>
           {location.pathname === "/chats" ? (
             <RiMessengerFill className="text-2xl" />
