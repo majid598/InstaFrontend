@@ -22,7 +22,7 @@ const Footer = () => {
         >
           <svg
             aria-label="Reels"
-            className={`x1lliihq x1n2onr6 x5n08af ${className}`}
+            className={`x1lliihq x1n2onr6 x5n08af`}
             fill="currentColor"
             height="24"
             role="img"
