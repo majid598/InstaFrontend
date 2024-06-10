@@ -1,10 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
-import { MdHome } from "react-icons/md";
-import { FaFacebookMessenger, FaPlay, FaSearch } from "react-icons/fa";
-import { VscDiffAdded } from "react-icons/vsc";
-import { useSelector } from "react-redux";
+import { FaSearch } from "react-icons/fa";
 import { GoHome, GoHomeFill } from "react-icons/go";
 import { RiMessengerFill, RiMessengerLine } from "react-icons/ri";
+import { useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const location = useLocation();
