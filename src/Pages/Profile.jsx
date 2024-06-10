@@ -46,19 +46,19 @@ const Profile = () => {
           <div className="profile bg-zinc-500 w-24 h-24  lg:w-20 md:w-20 md:h-20 lg:h-20 rounded-full overflow-hidden">
             <img src={user?.profile} className="w-full h-full" alt="" />
           </div>
-          <div className="bg-red-500">
+          <div className="">
             <div className="flex gap-2">
               <Link
                 to={"/profile/edit"}
-                className="sm:px-3 px-2 font-semibold text-xs tracking-tight py-1.5 sm:rounded-md rounded-[3px] bg-zinc-200"
+                className="px-4 font-bold text-xs tracking-tight py-1.5 sm:rounded-md rounded-[3px] bg-zinc-200"
               >
                 Edit profile
               </Link>
-              <Link className="sm:px-3 px-2 font-semibold text-xs tracking-tight py-1.5 sm:rounded-md rounded-[3px] bg-zinc-200">
+              <Link className="px-4 font-bold text-xs tracking-tight py-1.5 sm:rounded-md rounded-[3px] bg-zinc-200">
                 View archive
               </Link>
             </div>
-            <button className="w-full mt-2 font-semibold py-1.5 text-xs sm:rounded-md rounded-[3px] bg-zinc-200">
+            <button className="w-full mt-2 font-bold py-1.5 text-xs sm:rounded-md rounded-[3px] bg-zinc-200">
               Add tools
             </button>
           </div>
