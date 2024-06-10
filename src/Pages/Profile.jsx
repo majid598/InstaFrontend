@@ -46,7 +46,7 @@ const Profile = () => {
           <div className="profile bg-zinc-500 w-24 h-24  lg:w-20 md:w-20 md:h-20 lg:h-20 rounded-full overflow-hidden">
             <img src={user?.profile} className="w-full h-full" alt="" />
           </div>
-          <div className="pl-5 bg-red-500">
+          <div className="bg-red-500">
             <div className="flex gap-2">
               <Link
                 to={"/profile/edit"}
@@ -186,7 +186,7 @@ const Profile = () => {
               } after:-bottom-1.5 overflow-hidden after:left-1/2 after:-translate-x-1/2 relative after:rotate-45 after:border-b-0 after:border-r-0`}
             ></button>
           </button>
-          <button>
+          <button className="text-black/20">
             <svg
               aria-label="Tagged"
               class="x1lliihq x1n2onr6 x1roi4f4"
@@ -196,7 +196,6 @@ const Profile = () => {
               viewBox="0 0 24 24"
               width="24"
             >
-              <title>Tagged</title>
               <path
                 d="M10.201 3.797 12 1.997l1.799 1.8a1.59 1.59 0 0 0 1.124.465h5.259A1.818 1.818 0 0 1 22 6.08v14.104a1.818 1.818 0 0 1-1.818 1.818H3.818A1.818 1.818 0 0 1 2 20.184V6.08a1.818 1.818 0 0 1 1.818-1.818h5.26a1.59 1.59 0 0 0 1.123-.465Z"
                 fill="none"
