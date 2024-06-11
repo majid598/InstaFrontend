@@ -12,3 +12,11 @@ const ReelLoader = ({ message }) => {
 };
 
 export default ReelLoader;
+
+export const Loader = () => {
+  return (
+    <div className="w-full h-screen fixed flex-col bottom-0 left-0 bg-black/40 flex items-center justify-center">
+      <div className="loader w-20 h-20 rounded-full border-2 border-white border-b-white/30"></div>
+    </div>
+  );
+};

@@ -1,36 +1,36 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import Posts from "./Pages/Posts";
-import Search from "./Pages/Search";
-import Notifications from "./Pages/Notifications";
-import Reels from "./Pages/Reels";
-import Chat from "./Pages/Chat";
-import Profile from "./Pages/Profile";
-import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
-import ProtectedRoute from "./Components/ProtectedRoute";
+import axios from "axios";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
-import { useEffect } from "react";
-import { userExists, userNotExists } from "./redux/reducers/userReducer";
-import axios from "axios";
-import { server } from "./redux/api/api";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import { Loader } from "./Components/ReelLoader";
+import Chat from "./Pages/Chat";
+import CreateStory from "./Pages/CreateStory";
+import EditProfile from "./Pages/EditProfile";
 import Followers from "./Pages/Followers";
 import Following from "./Pages/Following";
-import EditProfile from "./Pages/EditProfile";
+import GetChat from "./Pages/GetChat";
+import GetReel from "./Pages/GetReel";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import NewChat from "./Pages/NewChat";
 import NewPost from "./Pages/NewPost";
+import NewReel from "./Pages/NewReel";
+import Notifications from "./Pages/Notifications";
 import OtherUser from "./Pages/OtherUser";
 import OtherUserFollowers from "./Pages/OtherUserFollowers";
 import OtherUserFollowing from "./Pages/OtherUserFollowing";
-import CreateStory from "./Pages/CreateStory";
+import Posts from "./Pages/Posts";
+import Profile from "./Pages/Profile";
+import Reels from "./Pages/Reels";
+import Search from "./Pages/Search";
+import Signup from "./Pages/Signup";
 import Story from "./Pages/Story";
 import Test from "./Test";
-import NewReel from "./Pages/NewReel";
-import GetChat from "./Pages/GetChat";
-import NewChat from "./Pages/NewChat";
-import GetReel from "./Pages/GetReel";
-import ReelLoader from "./Components/ReelLoader";
+import { server } from "./redux/api/api";
+import { userExists, userNotExists } from "./redux/reducers/userReducer";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const App = () => {
   }, [dispatch]);
 
   return loader ? (
-    <ReelLoader />
+    <Loader />
   ) : (
     <Router>
       <Routes>
