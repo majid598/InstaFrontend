@@ -45,7 +45,9 @@ const App = () => {
       .catch((err) => dispatch(userNotExists()));
   }, [dispatch]);
 
-  return user ? (
+  return loader ? (
+    <ReelLoader />
+  ) : (
     <Router>
       <Routes>
         <Route element={<ProtectedRoute user={user} />}>
@@ -84,8 +86,6 @@ const App = () => {
       </Routes>
       <ToastContainer />
     </Router>
-  ) : (
-    <ReelLoader />
   );
 };
 
