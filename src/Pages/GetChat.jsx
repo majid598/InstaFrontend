@@ -74,15 +74,18 @@ const GetChat = () => {
     }
   };
 
-  useEffect(() => {
-    // Scroll to the bottom of the chat container when the component mounts or when chatID changes
-    if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTo({
-        bottom: 0,
-        behavior: 'smooth',
+  const smoothScrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        block: "start",
       });
     }
-  }, [messagesData?.messages.length]);
+  };
+
+  useEffect(() => {
+    smoothScrollTo("bottom")
+  }, [messagesData?.messages]);
 
   if (isError) return toast.error("Chat Id Expired");
 
@@ -165,7 +168,7 @@ const GetChat = () => {
               ))}
             </div>
           )}
-          <div ref={chatContainerRef}></div>
+          <div id="bottom" className="w-full"></div>
         </div>
       </div>
       <div className="w-full h-20 absolute bottom-0 left-0 bg-white flex items-center justify-between px-4">
