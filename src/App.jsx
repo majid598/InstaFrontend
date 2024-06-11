@@ -30,6 +30,7 @@ import NewReel from "./Pages/NewReel";
 import GetChat from "./Pages/GetChat";
 import NewChat from "./Pages/NewChat";
 import GetReel from "./Pages/GetReel";
+import ReelLoader from "./Components/ReelLoader";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const App = () => {
       .catch((err) => dispatch(userNotExists()));
   }, [dispatch]);
 
-  return (
+  return user ? (
     <Router>
       <Routes>
         <Route element={<ProtectedRoute user={user} />}>
@@ -83,6 +84,8 @@ const App = () => {
       </Routes>
       <ToastContainer />
     </Router>
+  ) : (
+    <ReelLoader />
   );
 };
 
