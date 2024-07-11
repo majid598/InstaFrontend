@@ -8,19 +8,16 @@ import {
   useGetChatQuery,
   useSendMessageMutation,
 } from "../redux/api/api";
+import axios from "axios";
 
 const GetChat = () => {
+  const server = import.meta.env.VITE_SERVER;
   const chatContainerRef = useRef(null);
   const [content, setContent] = useState("");
   const [messages, setMessages] = useState([]);
   const chatId = useParams().id;
   const { user } = useSelector((state) => state.auth);
   const { data, isLoading } = useGetChatQuery(chatId);
-  const {
-    data: messagesData,
-    isError,
-    isLoading: messageLoading,
-  } = useAllMessagesQuery(chatId);
 
   const getMessageDateTime = (createdAt) => {
     const messageDate = moment(createdAt);
@@ -84,8 +81,12 @@ const GetChat = () => {
   };
 
   useEffect(() => {
-    smoothScrollTo("bottom")
-  }, [messagesData?.messages]);
+    axios
+      .get(`${server}/api/v1/chat/messages/${chatId}`)
+      .then(({ data }) => setMessages(data?.message))
+      .catch((err) => console.log(err));
+    smoothScrollTo("bottom");
+  }, [messages]);
 
   if (isError) return toast.error("Chat Id Expired");
 
@@ -93,9 +94,7 @@ const GetChat = () => {
     <div>Loading...</div>
   ) : (
     <div className="w-full h-screen relative bg-white">
-      <div
-        className="w-full max-h-screen overflow-y-scroll pb-20"
-      >
+      <div className="w-full max-h-screen overflow-y-scroll pb-20">
         <div className="w-full flex px-4 py-2 justify-between">
           <Link to="/">Back</Link>
           <h2>{user?.username}</h2>
@@ -126,48 +125,47 @@ const GetChat = () => {
               - Instagram
             </h2>
           </div>
-          {messageLoading ? (
-            <div>loading...</div>
-          ) : (
-            <div className="w-full flex flex-col gap-4">
-              {messagesData?.messages?.map((message, index) => (
-                <div key={message?._id} className="w-full">
-                  <div
-                    className={`w-full flex items-end gap-3 ${message?.sender?._id === user._id
+          <div className="w-full flex flex-col gap-4">
+            {messages?.map((message, index) => (
+              <div key={message?._id} className="w-full">
+                <div
+                  className={`w-full flex items-end gap-3 ${
+                    message?.sender?._id === user._id
                       ? "justify-end"
                       : "justify-start"
-                      }`}
-                  >
-                    {message?.sender?._id === user._id ? (
-                      ""
-                    ) : (
-                      <div className="w-6 h-6 overflow-hidden rounded-full bg-zinc-300">
-                        <img src={message?.sender?.profile} alt="" />
-                      </div>
-                    )}
-                    <div
-                      className={`w-1/2 h-full px-3 py-2 ${message?.sender?._id === user._id
+                  }`}
+                >
+                  {message?.sender?._id === user._id ? (
+                    ""
+                  ) : (
+                    <div className="w-6 h-6 overflow-hidden rounded-full bg-zinc-300">
+                      <img src={message?.sender?.profile} alt="" />
+                    </div>
+                  )}
+                  <div
+                    className={`w-1/2 h-full px-3 py-2 ${
+                      message?.sender?._id === user._id
                         ? "bg-[#3797F0] text-white rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl rounded-br-sm "
                         : "bg-black/10 text-zinc-800 rounded-xl"
-                        }`}
-                    >
-                      <p className="text-sm">
-                        {renderMessageContent(message?.content)}
-                      </p>
-                    </div>
-                    {/* <h4 className="text-xs text-zinc-500">
+                    }`}
+                  >
+                    <p className="text-sm">
+                      {renderMessageContent(message?.content)}
+                    </p>
+                  </div>
+                  {/* <h4 className="text-xs text-zinc-500">
           {timeAgo(message?.createdAt)}
         </h4> */}
-                  </div>
-                  <div className="w-full py-5 text-center justify-center">
-                    <h5 className="text-xs text-zinc-500">
-                      {getMessageDateTime(message?.createdAt)}
-                    </h5>
-                  </div>
                 </div>
-              ))}
-            </div>
-          )}
+                <div className="w-full py-5 text-center justify-center">
+                  <h5 className="text-xs text-zinc-500">
+                    {getMessageDateTime(message?.createdAt)}
+                  </h5>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div id="bottom" className="w-full"></div>
         </div>
       </div>
