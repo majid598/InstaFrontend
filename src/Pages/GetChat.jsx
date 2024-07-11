@@ -88,8 +88,6 @@ const GetChat = () => {
     smoothScrollTo("bottom");
   }, [messages]);
 
-  if (isError) return toast.error("Chat Id Expired");
-
   return isLoading ? (
     <div>Loading...</div>
   ) : (
