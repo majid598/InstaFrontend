@@ -82,7 +82,9 @@ const GetChat = () => {
 
   useEffect(() => {
     axios
-      .get(`${server}/api/v1/chat/messages/${chatId}`)
+      .get(`${server}/api/v1/chat/messages/${chatId}`, {
+        withCredentials: true,
+      })
       .then(({ data }) => setMessages(data?.message))
       .catch((err) => console.log(err));
     smoothScrollTo("bottom");
