@@ -85,7 +85,7 @@ const GetChat = () => {
       .get(`${server}/api/v1/chat/messages/${chatId}`, {
         withCredentials: true,
       })
-      .then(({ data }) => setMessages(data?.message))
+      .then(({ data }) => setMessages(data?.messages))
       .catch((err) => console.log(err));
     smoothScrollTo("bottom");
   }, [messages]);
