@@ -4,9 +4,12 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import {
+  server,
   useFollowToaUserMutation,
   useMyNotificationsQuery,
 } from "../redux/api/api";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Notifications = () => {
   const { user } = useSelector((state) => state.auth);
@@ -22,6 +25,10 @@ const Notifications = () => {
       })
       .catch((err) => toast.error(err?.data?.message));
   };
+
+  useEffect(() => {
+    axios.get(`${server}/api/v1/user/notifications/reset`, { withCredentials: true }).then(({ data }) => console.log(data)).catch((err) => console.log(err))
+  }, [])
 
   return (
     <Layout>

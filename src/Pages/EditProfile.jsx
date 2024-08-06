@@ -1,12 +1,14 @@
+import axios from "axios";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useEditProfileMutation } from "../redux/api/api";
 import { toast } from "react-toastify";
 import Footer from "../Components/Footer";
-import axios from "axios";
+import { useEditProfileMutation } from "../redux/api/api";
+import { useNavigate } from "react-router-dom";
 
 const EditProfile = () => {
   const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate()
   const [popup, setPopup] = useState(false);
   const [image, setImage] = useState("");
   const [bio, setBio] = useState(user?.bio);
@@ -42,7 +44,10 @@ const EditProfile = () => {
     };
     editProfile(data)
       .unwrap()
-      .then((data) => toast.success(data?.message))
+      .then((data) => {
+        navigate("/profile")
+        toast.success(data?.message)
+      })
       .catch((err) => toast.error(err?.data?.message));
   };
 

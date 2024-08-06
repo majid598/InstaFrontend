@@ -77,7 +77,7 @@ const Profile = () => {
             </a>
           )}
         </div>
-        <div className="w-full py-4 flex justify-between border-b px-16 border-black/20">
+        <div className="w-full py-4 flex justify-between border-b px-10 border-black/20">
           <div className="flex flex-col gap-1 items-center">
             <span className="leading-none font-semibold">
               {user?.posts?.length + user?.reels?.length}

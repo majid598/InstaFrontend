@@ -9,6 +9,7 @@ import {
   useSendMessageMutation,
 } from "../redux/api/api";
 import axios from "axios";
+import { motion } from "framer-motion"
 
 const GetChat = () => {
   const server = import.meta.env.VITE_SERVER;
@@ -76,6 +77,7 @@ const GetChat = () => {
     if (element) {
       element.scrollIntoView({
         block: "start",
+        behavior: "smooth"
       });
     }
   };
@@ -128,12 +130,13 @@ const GetChat = () => {
           <div className="w-full flex flex-col gap-4">
             {messages?.map((message, index) => (
               <div key={message?._id} className="w-full">
-                <div
-                  className={`w-full flex items-end gap-3 ${
-                    message?.sender?._id === user._id
-                      ? "justify-end"
-                      : "justify-start"
-                  }`}
+                <motion.div
+                  initial={{ opacity: 0, x: "-100%" }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  className={`w-full flex items-end gap-3 ${message?.sender?._id === user._id
+                    ? "justify-end"
+                    : "justify-start"
+                    }`}
                 >
                   {message?.sender?._id === user._id ? (
                     ""
@@ -143,11 +146,10 @@ const GetChat = () => {
                     </div>
                   )}
                   <div
-                    className={`w-1/2 h-full px-3 py-2 ${
-                      message?.sender?._id === user._id
-                        ? "bg-[#3797F0] text-white rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl rounded-br-sm "
-                        : "bg-black/10 text-zinc-800 rounded-xl"
-                    }`}
+                    className={`w-1/2 h-full px-3 py-2 ${message?.sender?._id === user._id
+                      ? "bg-[#3797F0] text-white rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl rounded-br-sm "
+                      : "bg-black/10 text-zinc-800 rounded-xl"
+                      }`}
                   >
                     <p className="text-sm">
                       {renderMessageContent(message?.content)}
@@ -156,7 +158,7 @@ const GetChat = () => {
                   {/* <h4 className="text-xs text-zinc-500">
           {timeAgo(message?.createdAt)}
         </h4> */}
-                </div>
+                </motion.div>
                 <div className="w-full py-5 text-center justify-center">
                   <h5 className="text-xs text-zinc-500">
                     {getMessageDateTime(message?.createdAt)}

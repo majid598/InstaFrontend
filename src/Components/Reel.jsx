@@ -18,6 +18,7 @@ import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "emoji-mart/package.json";
 import { Picker } from "emoji-mart";
+import axios from "axios";
 const Reel = ({ index, reel, playerRefs, currentIndex }) => {
   const { user } = useSelector((state) => state.auth);
   const [isComment, setIsComment] = useState(false);
@@ -167,9 +168,7 @@ const Reel = ({ index, reel, playerRefs, currentIndex }) => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLike(false);
-    }, 2000);
+    axios.get(`${server}/api/v1/post/reel/view/${reel?._id}`, { withCredentials: true }).then(({ data }) => console.log(data)).catch((err) => console.log(err))
   }, []);
 
   return (

@@ -47,9 +47,9 @@ const Header = () => {
             <AiOutlinePlus className="text-xl" />
           </button>
           <Link to="/notifications" className="relative">
-            {user?.notifications?.length > 0 && (
+            {user?.notificationCount > 0 && (
               <div className="absolute h-4 w-4 flex items-center justify-center -bottom-1 right-0 rounded-full bg-sky-500 text-white">
-                <span className="text-sm">{user?.notifications?.length}</span>
+                <span className="text-sm">{user?.notificationCount}</span>
               </div>
             )}
             <FaRegHeart className="text-2xl font-bold" />

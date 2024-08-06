@@ -43,7 +43,7 @@ const App = () => {
         dispatch(userExists(data?.user));
       })
       .catch((err) => dispatch(userNotExists()));
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   return loader ? (
     <Loader />
