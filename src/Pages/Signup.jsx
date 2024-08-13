@@ -40,7 +40,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-full min-h-screen lg:h-[82vh] lg:overflow-y-scroll lg:w-[20rem] lg:px-0 md:w-[20rem] md:px-0 sm:w-[20rem] sm:px-0 mx-auto py-4 px-20">
+    <div className="w-full min-h-screen lg:h-[82vh] lg:overflow-y-scroll sm:w-[20rem] sm:px-0 mx-auto py-4 px-10">
       <div className="w-full h-full flex flex-col items-center">
         <form
           onSubmit={handleSubmit}
@@ -49,7 +49,7 @@ const Signup = () => {
           <div className="w-3/5">
             <img src="/assets/Instagram_logo.svg" alt="" />
           </div>
-          <div className="w-full px-12">
+          <div className="w-full sm:px-12">
             <p className="text-center font-semibold text-zinc-500">
               Sign up to see photos and videos from your friends.
             </p>
@@ -58,12 +58,12 @@ const Signup = () => {
               Facebook
             </button>
           </div>
-          <div className="w-full px-12 mt-4 flex gap-3 justify-center items-center">
+          <div className="w-full sm:px-12 mt-4 flex gap-3 justify-center items-center">
             <div className="w-[40%] h-[1px] bg-black/30 rounded-xl"></div>
             <span className="text-sm text-zinc-600">OR</span>
             <div className="w-[40%] h-[1px] bg-black/30 rounded-xl"></div>
           </div>
-          <div className="w-4/5 mt-6 px-4">
+          <div className="sm:w-4/5 mt-6 sm:px-4">
             <input
               type="text"
               className="w-full p-2 border border-black/30 focus:border-black/50 rounded-sm bg-zinc-50 text-sm outline-none"
