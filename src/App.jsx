@@ -38,7 +38,12 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get(`${server}/api/v1/user/me`, { withCredentials: true })
+      .get(`${server}/api/v1/user/me`, {
+        withCredentials: true,
+        headers: {
+          "token": localStorage.getItem("token")
+        }
+      })
       .then(({ data }) => {
         dispatch(userExists(data?.user));
       })

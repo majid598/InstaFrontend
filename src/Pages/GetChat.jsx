@@ -86,6 +86,9 @@ const GetChat = () => {
     axios
       .get(`${server}/api/v1/chat/messages/${chatId}`, {
         withCredentials: true,
+        headers: {
+          "token": localStorage.getItem("token")
+        }
       })
       .then(({ data }) => setMessages(data?.messages))
       .catch((err) => console.log(err));
